@@ -20,9 +20,9 @@ CLASS ycl_gol_cell DEFINITION
       constructor
         IMPORTING
           is_alive TYPE abap_bool,
-    is_cell_alive
-      RETURNING
-        VALUE(is_alive) TYPE abap_bool.
+      is_cell_alive
+        RETURNING
+          VALUE(is_alive) TYPE abap_bool.
 
 
   PROTECTED SECTION.
@@ -46,6 +46,21 @@ CLASS ycl_gol_cell IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD is_cell_alive.
+
+    IF is_alive EQ abap_false.
+
+      is_alive = boolc( REDUCE i( INIT result = 0
+                           FOR lo_neighbour IN neighbours
+                           WHERE ( table_line->is_alive EQ abap_true )
+                           NEXT result = result + 1 ) EQ 3 ).
+
+
+  ELSE.
+
+
+    ENDIF.
+
+
 
 
 
