@@ -10,8 +10,6 @@ ENDCLASS.
 
 
 
-
-
 CLASS ycl_gol_grid IMPLEMENTATION.
 
 

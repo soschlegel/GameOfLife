@@ -39,11 +39,29 @@ CLASS ltc_gol IMPLEMENTATION.
 
   METHOD lv_less_then_two.
 
+    cut = NEW #( is_alive = abap_true ).
 
+    create_neighbours( dead   = 7
+                       living = 1 ).
+
+    cl_abap_unit_assert=>assert_equals(
+      EXPORTING
+        act                  = cut->is_cell_alive( )
+        exp                  = abap_false ).
 
   ENDMETHOD.
 
   METHOD lv_more_then_three.
+
+    cut = NEW #( is_alive = abap_true ).
+
+    create_neighbours( dead   = 4
+                       living = 4 ).
+
+    cl_abap_unit_assert=>assert_equals(
+      EXPORTING
+        act                  = cut->is_cell_alive( )
+        exp                  = abap_false ).
 
   ENDMETHOD.
 
