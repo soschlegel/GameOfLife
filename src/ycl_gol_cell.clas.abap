@@ -8,6 +8,7 @@ CLASS ycl_gol_cell DEFINITION
     TYPES:
            tab TYPE STANDARD TABLE OF REF TO ycl_gol_cell WITH DEFAULT KEY.
 
+
     DATA:
       is_alive   TYPE abap_bool READ-ONLY,
       neighbours TYPE tab.
